@@ -1,0 +1,76 @@
+@charset "utf-8";
+/* CSS Document */
+.org-chart {
+	width: 100%;
+	height: 100%;
+  transition-timing-function: ease-in;
+  transition: 0.2s;
+}
+.node-name, .node-title, .node-desc {
+	margin: 0;
+	padding: 0;
+	color: #737377;
+	font-size: 12px;
+}
+.Treant > .node img, .ee-card img, .profile-header img {
+    border: none;
+	float: none;
+	border-radius: 50%;
+	margin-bottom:  10px;
+    height: 65px;
+    width: 65px;
+    object-fit: cover;
+}
+.Treant > .node {
+}
+.node-name {
+	font-weight: bold;
+	font-size: 13px;
+}
+.ee-card {
+    transition: all .2s ease-in-out;	
+}
+.ee-card:hover {
+    box-shadow: 0 8px 17px 0 rgba(0,0,0,.2), 0 6px 20px 0 rgba(0,0,0,.19);
+    transition: all .5s ease-in-out;	
+}
+.org-chart .card {
+    -webkit-border-radius: .25rem;
+    -moz-border-radius: .25rem;
+    border-radius: .25rem;
+    background-color: #ffffff;
+/*    border: 1px solid #000;*/
+    width: 150px;
+    font-size: 12px;
+	flex: 1 1 auto;
+    padding: .25rem 1.25rem 1.25rem;
+	height: 180px;
+}
+
+.Treant .collapse-switch { 
+	width: 100%; 
+	height: 100%; 
+	border: none; 
+}
+.Treant .node.collapsed { 
+	background-color: #ebf3fa; 
+	border-color: #67a1d3;
+}
+.Treant .node.collapsed .collapse-switch { 
+	background: none; 
+}
+
+
+
+/*DIRECTORY LIST VIEW*/
+#dataTable td img {
+	border-radius: 50%;
+    height: 2.9rem;
+}
+#dataTable td, #dataTable th {
+	vertical-align: middle;
+}
+
+
+
+/*DIRECTORY LIST VIEW*/

@@ -1,0 +1,13 @@
+
+# exclude nodejs files
+node_modules/
+
+# ignore configs since they will be automated in server
+api/models/database.php
+inc/database.php
+inc/config.php
+js/config.js
+
+# exclude other profile picture, except defaults
+img/ees/*
+!img/ees/default.*

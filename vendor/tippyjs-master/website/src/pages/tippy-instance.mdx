@@ -1,0 +1,54 @@
+---
+title: Tippy Instance
+path: /tippy-instance/
+index: 8
+---
+
+A tippy instance is an individual tippy object. It has a bunch of properties and
+methods that contain information and functionality to manipulate the tippy
+programmatically.
+
+### Accessing an instance
+
+`tippy()` is a generic constructor to **create** tippy instances. It either
+returns the tippy instance directly, or returns an array of them.
+
+#### Element
+
+If passing an element directly, the instance is directly returned:
+
+```js
+const button = document.querySelector('button');
+const instance = tippy(button); // type Instance
+```
+
+#### String, NodeList, Element[]
+
+If passing a CSS selector `String`, `NodeList`, or an array of `Element`s, then
+an array of instances get returned (since potentially many instances can be
+created):
+
+```js
+const instances = tippy('button'); // type Instance[] (array)
+```
+
+#### `_tippy` property
+
+If you need to access the instance later, this property can be useful if you
+didn't assign the instance(s) to a variable. Both the reference element and the
+popper element have the instance attached as the `_tippy` property.
+
+```js
+const button = document.querySelector('button');
+tippy(button);
+const instance = button._tippy;
+```
+
+### Shape and properties
+
+`instance` is a plain object. It's best to log it out yourself and investigate
+in DevTools:
+
+```js
+console.log(instance);
+```

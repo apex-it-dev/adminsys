@@ -1,0 +1,32 @@
+{
+  "name": "adminsys-dev",
+  "version": "1.0.0",
+  "description": "Abacare Administrator Page",
+  "main": "obfuscate.js",
+  "dependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "acorn": "^6.4.1",
+    "acorn-import-meta": "^1.1.0",
+    "babel-plugin-remove-use-strict": "^1.0.1",
+    "javascript-obfuscator": "^0.27.4"
+  },
+  "devDependencies": {
+    "bootstrap4-toggle": "^3.6.1"
+  },
+  "scripts": {
+    "obfuscate-latest": "node jstoobf/obfuscate.js",
+    "obfuscate-all": "node jstoobf/obfuscate.js -f"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abacare-it-dev/adminsys.git"
+  },
+  "bugs": {
+    "url": "https://github.com/abacare-it-dev/adminsys/issues"
+  },
+  "homepage": "https://github.com/abacare-it-dev/adminsys#readme"
+}

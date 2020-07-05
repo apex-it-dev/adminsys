@@ -1,0 +1,118 @@
+---
+title: Motivation
+path: /motivation/
+index: 17
+---
+
+### Why tooltips and popovers?
+
+Both are elements positioned near a "reference" element, and are hidden until
+they are triggered. They help conserve space by hiding secondary information or
+functionality behind a hover or click. They are positioned outside the normal
+flow of the document so when they are triggered, they are overlayed on top of
+the existing UI without disrupting the flow of content.
+
+Tippy.js distinguishes them in the following way:
+
+- A **tooltip** is an element containing simple text content describing a
+  particular element. It's hidden until the user desires more information from
+  the element, e.g. before deciding to click a button.
+- A **popover** is an interactive HTML tooltip. It can be a dropdown, menu, or
+  any other kind of box that pops out from the normal flow of the document. This
+  type of element contains non-vital functionality and can be hidden behind a
+  click or hover to conserve space.
+
+Both of these are called a "tippy" when using Tippy.js!
+
+### Tippy.js
+
+**Size: 5.5 KB (core)** (including Popper: 12.8 KB)
+
+> (core) means the core JS & CSS. If importing more themes, animations, plugins,
+> or addons, the size will increase.
+
+Tippy is an abstraction over Popper and provides a set of features and defaults
+that make creating tooltip and popover elements easy.
+
+But, how does Tippy compare to other solutions?
+
+### Comparison with Popper.js
+
+**Size: 7.3 KB**
+
+Popper.js is a positioning engine, not a tooltip library. Popper's only goal is
+to position an absolutely positioned element (the tooltip) near another element
+(the reference).
+
+Since the element is absolutely positioned, naively centering it above the
+reference element can cause it to:
+
+- **Overflow the boundary** (viewport, window, scrollParent) and therefore get
+  cut off
+- **Overlap its reference element (due to overflow prevention)**, so it should
+  flip to the opposite side
+- **Detach from the reference element** if inside a scrolling container
+
+Popper solves all of these problems. The expected logic to do this is very
+complex, so this is effectively a "baseline" library if you want to even use
+popper elements (tooltips, popovers, dropdowns) in your app in the first place
+without them having poor UX.
+
+For people who want to build the appearance and behavior of their popper
+elements from scratch, this is a fantastic library. If you want "out of the box"
+(abstracted) behavior, then using Tippy might be better.
+
+Tippy takes advantage of Popper as a dependency, so you can use them together
+without incurring additional cost:
+
+```js
+import Popper from 'popper.js';
+import tippy from 'tippy.js';
+```
+
+If you're using the CDN, the `Popper` constructor will already be available.
+
+### Comparison with Tooltip.js
+
+**Size: 2.3 KB** (including Popper: 9.6 KB)
+
+Tooltip.js is a small tooltip library built on top of Popper, much like Tippy
+is.
+
+Unlike Tippy, however, it lacks certain features to be 3 KB smaller:
+
+- Does not come with styling or animations
+- Is less accessible out of the box
+- Has no lifecycle hooks for AJAX or plugin extensibility
+- Is more complex to set up, particularly using HTML
+- Interactivity is not possible with a hover event
+- Does not handle touch input adequately
+
+### Comparison with Tooltipster
+
+**Size: 10 KB** (including jQuery: 40 KB)
+
+Tooltipster is a fantastic library with very similar functionality, but requires
+a jQuery dependency, unlike Tippy. To many people these days, this is a
+dealbreaker! jQuery's minzipped size is about 30 KB, and Tooltipster including
+CSS is about 10 KB. To people using frameworks like React, Vue, or Angular, it
+can be hard to deal with such a large dependency.
+
+Tooltipster is also receiving less frequent updates than Tippy, its last version
+was released over a year ago (as of Feb 2019).
+
+### Comparison with Microtip and Balloon.css
+
+**Size: 1 KB**
+
+Both of these are pure CSS tooltip libraries. CSS tooltips can be tiny in size,
+but come with many drawbacks:
+
+- Lack of positioning engine means overflow prevention & flipping are not
+  possible
+- No interactivity
+- No dynamic arrow positioning
+- Using HTML content within them (e.g. popovers) is cumbersome or not possible
+
+If you don't need the above, then a CSS tooltip library might better fit your
+needs.
